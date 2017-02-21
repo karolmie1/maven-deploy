@@ -219,7 +219,7 @@ describe('maven-deploy', function () {
         it('should increase patch-version and add -SNAPSHOT to the version to follow Maven conventions', function () {
             const EXPECTED_VERSION_ARG = '-Dversion=' + semver.inc(TEST_PKG_JSON.version, 'patch') + '-SNAPSHOT';
             maven.config(TEST_CONFIG);
-            maven.install();
+            maven.install(undefined, undefined, true);
             var cmd = childProcessMock.exec.args[0][0].split(/\s+/);
 
             assert.ok(arrayContains(cmd, EXPECTED_VERSION_ARG), 'cmd should contain ' + EXPECTED_VERSION_ARG +
@@ -233,7 +233,7 @@ describe('maven-deploy', function () {
             config.finalName = '{name}-{version}';
 
             maven.config(config);
-            maven.install();
+            maven.install(undefined, undefined, true);
 
             assertWarFileToEqual(EXPECTED_FILENAME);
         });
