@@ -189,9 +189,9 @@ var maven = {
 
     package: package,
 
-    install: function (file, done) {
+    install: function (file, done, isSnapshot) {
         if (typeof file == 'function') { done = file; file = undefined; }
-        mvn(['install:install-file'], null, true, file, done);
+        mvn(['install:install-file'], null, isSnapshot, file, done);
     },
 
     deploy: function (repoId, file, isSnapshot, done) {

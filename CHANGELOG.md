@@ -4,6 +4,9 @@
 * BREAKING CHANGE: Do not exit if `mvn` command fails. Pass error, stdout and stderr to callback instead.
 * Switch to async API
 
+## 1.5.1
+* Maven install now can install non-snapshot artifacts
+
 ## 1.5.0
 * No change since 1.5.0-beta
 
